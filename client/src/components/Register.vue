@@ -55,7 +55,4 @@ export default {
 .error{
   color: red;
 }
-input[type="text"] {
-    border-bottom: 1px solid #333;
-}
 </style>
