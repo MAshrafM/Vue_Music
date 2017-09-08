@@ -1,6 +1,17 @@
 const {User} = require('../models')
+const jwt = require('jsonwebtoken')
+const config = require('../config/config')
+
+// JsonWebToken with secret token
+function jwtSignUser (user) {
+  const ONE_WEEK = 60 * 60 * 24 * 7
+  return jwt.sign(user, config.authentication.jwtSecret, {
+    expiresIn: ONE_WEEK
+  })
+}
 
 module.exports = {
+  // Register Authentication
   async register (req, res) {
     try{
       const user = await User.create(req.body)
@@ -11,6 +22,7 @@ module.exports = {
       })
     }
   },
+  // Login Authentication
   async login (req, res) {
     try{
       const {email, password} = req.body
@@ -33,7 +45,8 @@ module.exports = {
       
       const userJson = user.toJSON()
       res.send({
-        user: userJson
+        user: userJson,
+        token: jwtSignUser(userJson)
       })
     } catch (err){
       res.status(500).send({
