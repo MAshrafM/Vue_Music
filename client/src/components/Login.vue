@@ -10,11 +10,11 @@
         <div class="pl-4 pr-4 pl-2 pb-2">
           <v-text-field
             label= "Email"
-            v-mode="email"
+            v-model="email"
             ></v-text-field>
           <v-text-field
             label= "Password"
-            v-mode="password"
+            v-model="password"
             ></v-text-field>
           <div v-html="error" class="error"/>
           <br />
