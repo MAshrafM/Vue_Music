@@ -15,6 +15,7 @@
           <v-text-field
             label= "Password"
             v-model="password"
+            type="password"
             ></v-text-field>
           <div v-html="error" class="error"/>
           <br />

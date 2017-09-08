@@ -8,17 +8,23 @@
           </v-toolbar-title>
         </v-toolbar>
         <div class="pl-4 pr-4 pl-2 pb-2">
-          <v-text-field
-            label= "Email"
-            v-model="email"
-            ></v-text-field>
-          <v-text-field
-            label= "Password"
-            v-model="password"
-            ></v-text-field>
-          <div v-html="error" class="error"/>
-          <br />
-          <v-btn dark class="cyan" @click="register">Register</v-btn>
+          <div v-html="error" />
+          <form
+            name="vuemusic-form"
+            autocomplete="off">
+              <v-text-field
+                label= "Email"
+                v-model="email"
+                ></v-text-field>
+              <v-text-field
+                label= "Password"
+                v-model="password"
+                type="password"
+                ></v-text-field>
+              <br />
+              <v-btn dark class="cyan" @click="register">Register</v-btn>
+          </form>
+          
         </div>
       </div>
     </v-flex>
@@ -52,7 +58,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.error{
-  color: red;
-}
+
 </style>
