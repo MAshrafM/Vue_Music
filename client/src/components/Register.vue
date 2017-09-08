@@ -18,7 +18,7 @@
             ></v-text-field>
           <div v-html="error" class="error"/>
           <br />
-          <v-btn class="cyan" @click="register">Register</v-btn>
+          <v-btn dark class="cyan" @click="register">Register</v-btn>
         </div>
       </div>
     </v-flex>
