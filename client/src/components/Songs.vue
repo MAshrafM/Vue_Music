@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import SongsService from '@/services/SongsService'
 import Panel from '@/components/Panel'
 export default {
   components: {
@@ -23,8 +24,9 @@ export default {
       songs: []
     }
   },
-  mounted () {
+  async mounted () {
     // do a req for the backend for the songs
+    this.songs  = await SongsService.index()
   }
 }
 </script>
