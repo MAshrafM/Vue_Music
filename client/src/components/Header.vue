@@ -8,13 +8,13 @@
         </span>
     </v-toolbar-title>
     
-    <!-- TODO
+    
     <v-toolbar-items>
-      <v-btn flat dark>
+      <v-btn flat dark @click="navigateTo({name: 'songs'})">
         Browse
       </v-btn>
     </v-toolbar-items>
-    -->
+    
     <v-spacer></v-spacer>
     <v-toolbar-items>
       <v-btn 
@@ -58,7 +58,7 @@ export default {
       this.$router.push({
         name: 'root'
       })
-    }    
+    }
   }
 }
 </script>
