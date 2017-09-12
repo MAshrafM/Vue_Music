@@ -4,27 +4,27 @@
       <panel title="Song Metadata">
         <v-text-filed 
           label="Title" 
-          v-model="title">
+          v-model="song.title">
         </v-text-filed>
         <v-text-filed 
           label="Artist" 
-          v-model="artist">
+          v-model="song.artist">
         </v-text-filed>
         <v-text-filed 
           label="Genre" 
-          v-model="genre">
+          v-model="song.genre">
         </v-text-filed>
         <v-text-filed 
           label="Album" 
-          v-model="album">
+          v-model="song.album">
         </v-text-filed>
         <v-text-filed 
           label="Cover" 
-          v-model="albumImageUrl">
+          v-model="song.albumImageUrl">
         </v-text-filed>
         <v-text-filed 
           label="Youtube" 
-          v-model="youtubeId">
+          v-model="song.youtubeId">
         </v-text-filed>
       </panel>
     </v-flex>
@@ -33,12 +33,12 @@
         <v-text-filed
           label="Lyrics"
           multi-line
-          v-model="lyrics">
+          v-model="song.lyrics">
         </v-text-filed>
         <v-text-filed
           label="Chords"
           multi-line
-          v-model="cords">
+          v-model="song.cords">
         </v-text-filed>
       </panel>
       <v-btn
@@ -53,25 +53,37 @@
 
 <script>
 import Panel from '@/components/Panel'
+import SongsService from '@/services/SongsService'
 export default {
   data () {
     return {
-      title: null,
-      artist: null,
-      genre: null,
-      album: null,
-      albumImageUrl: null,
-      youtubeId: null,
-      lyrics: null,
-      cords: null
+      song: {
+        title: null,
+        artist: null,
+        genre: null,
+        album: null,
+        albumImageUrl: null,
+        youtubeId: null,
+        lyrics: null,
+        cords: null
+      }
     }
   },
   components: {
     Panel
   },
   methods: {
-    create () {
-      // call API
+    async create () {
+      try {
+        // call API
+        await SongsService.post(this.song)
+        // redirect
+        this.$router.push({
+          name: 'songs'
+        })
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
 }
