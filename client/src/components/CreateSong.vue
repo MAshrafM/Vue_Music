@@ -4,26 +4,38 @@
       <panel title="Song Metadata">
         <v-text-filed 
           label="Title" 
+          required
+          :rules="[required]"
           v-model="song.title">
         </v-text-filed>
         <v-text-filed 
           label="Artist" 
+          required
+          :rules="[required]"
           v-model="song.artist">
         </v-text-filed>
         <v-text-filed 
           label="Genre" 
+          required
+          :rules="[required]"
           v-model="song.genre">
         </v-text-filed>
         <v-text-filed 
           label="Album" 
+          required
+          :rules="[required]"
           v-model="song.album">
         </v-text-filed>
         <v-text-filed 
           label="Cover" 
+          required
+          :rules="[required]"
           v-model="song.albumImageUrl">
         </v-text-filed>
         <v-text-filed 
           label="Youtube" 
+          required
+          :rules="[required]"
           v-model="song.youtubeId">
         </v-text-filed>
       </panel>
@@ -31,13 +43,17 @@
     <v-flex xs7 class="ml-2">
       <panel title="Song Structure">
         <v-text-filed
-          label="Lyrics"
+          label="Lyrics" 
+          required 
+          :rules="[required]" 
           multi-line
           v-model="song.lyrics">
         </v-text-filed>
         <v-text-filed
-          label="Chords"
-          multi-line
+          label="Chords" 
+          required 
+          :rules="[required]" 
+          multi-line 
           v-model="song.cords">
         </v-text-filed>
       </panel>
@@ -66,7 +82,8 @@ export default {
         youtubeId: null,
         lyrics: null,
         cords: null
-      }
+      },
+      required: (value) => !value || 'Required.'
     }
   },
   components: {
