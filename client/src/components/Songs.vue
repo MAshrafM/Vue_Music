@@ -32,7 +32,18 @@
                 {{song.genre}}
               </div>
               
-              
+              <v-btn
+                dark
+                class="cyan"
+                @click="navigateTo({
+                  name: 'song',
+                  params: {
+                    songId: song.id
+                  }
+                })"
+              >
+              View
+              </v-btn>
             </v-flex>
             <v-flex xs6>
               <img class="album-cover" :src="song.albumImageUrl" />
