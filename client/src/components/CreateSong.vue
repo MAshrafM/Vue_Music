@@ -57,6 +57,13 @@
           v-model="song.cords">
         </v-text-filed>
       </panel>
+      
+      <div 
+        class="danger-alert" 
+        v-if="error"
+      >
+        {{error}}
+      </div>
       <v-btn
         dark
         class="cyan"
@@ -83,6 +90,7 @@ export default {
         lyrics: null,
         cords: null
       },
+      error: null,
       required: (value) => !value || 'Required.'
     }
   },
@@ -91,6 +99,14 @@ export default {
   },
   methods: {
     async create () {
+      this.error = null
+      const areAllFieldsFilledIn = Object
+        .keys(this.song)
+        .every(key => !!this.song[key])
+      if (!areAllFieldsFilledIn) {
+        this.error = 'Please Fill in all the required fields.'
+        return
+      }
       try {
         // call API
         await SongsService.post(this.song)
