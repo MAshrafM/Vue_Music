@@ -1,61 +1,61 @@
 <template>
   <v-layout>
-    <v-flex xs4">
+    <v-flex xs4>
       <panel title="Song Metadata">
-        <v-text-filed 
+        <v-text-field 
           label="Title" 
           required
           :rules="[required]"
           v-model="song.title">
-        </v-text-filed>
-        <v-text-filed 
+        </v-text-field>
+        <v-text-field 
           label="Artist" 
           required
           :rules="[required]"
           v-model="song.artist">
-        </v-text-filed>
-        <v-text-filed 
+        </v-text-field>
+        <v-text-field 
           label="Genre" 
           required
           :rules="[required]"
           v-model="song.genre">
-        </v-text-filed>
-        <v-text-filed 
+        </v-text-field>
+        <v-text-field 
           label="Album" 
           required
           :rules="[required]"
           v-model="song.album">
-        </v-text-filed>
-        <v-text-filed 
+        </v-text-field>
+        <v-text-field 
           label="Cover" 
           required
           :rules="[required]"
           v-model="song.albumImageUrl">
-        </v-text-filed>
-        <v-text-filed 
+        </v-text-field>
+        <v-text-field 
           label="Youtube" 
           required
           :rules="[required]"
           v-model="song.youtubeId">
-        </v-text-filed>
+        </v-text-field>
       </panel>
     </v-flex>
     <v-flex xs7 class="ml-2">
       <panel title="Song Structure">
-        <v-text-filed
+        <v-text-field
           label="Lyrics" 
           required 
           :rules="[required]" 
           multi-line
           v-model="song.lyrics">
-        </v-text-filed>
-        <v-text-filed
+        </v-text-field>
+        <v-text-field
           label="Chords" 
           required 
           :rules="[required]" 
           multi-line 
           v-model="song.cords">
-        </v-text-filed>
+        </v-text-field>
       </panel>
       
       <div 

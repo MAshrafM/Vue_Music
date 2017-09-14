@@ -70,13 +70,13 @@ export default {
   },
   methods: {
     navigateTo (route) {
-      this.$router.push(route);
+      this.$router.push(route)
     }
   },
   async mounted () {
     // do a req for the backend for the songs
     // .data for axios
-    this.songs  = (await SongsService.index()).data
+    this.songs = (await SongsService.index()).data
   }
 }
 </script>
