@@ -16,4 +16,6 @@ module.exports = (app) => {
   app.get('/songs', SongsController.index)
   // Create a song end-point
   app.post('/songs', SongsController.post)
+  // Show song 
+  app.get('/songs/:songId', SongsController.show)
 }
