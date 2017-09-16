@@ -32,9 +32,10 @@
 </template>
 
 <script>
+import SongsService from '@/services/SongsService'
+import SongMetadata from '@/components/ViewSong/SongMetadata'
+import Panel from '@/components/Panel'
 export default {
-  import 'SongsService' from '@/services/SongsService'
-  import 'Panel' from '@/components/Panel'
   data () {
     return {
       song: {}
@@ -45,30 +46,13 @@ export default {
     this.song = (await SongsService.show(songId)).data
   },
   components: {
-    Panel
+    Panel,
+    SongMetadata
   }
 }
 </script>
 
 <style scoped>
-.song{
-  padding: 20px;
-  height: 330px;
-  overflow: hidden;
-}
-.song-title{
-  font-size: 30px;
-}
-.song-artist{
-  font-size: 24px;
-}
-.song-genre{
-  font-size: 18px;
-}
-.album-cover{
-  width: 70%;
-  margin: 0 auto;
-}
 textarea {
   width: 100%;
   font-family: monospace;
