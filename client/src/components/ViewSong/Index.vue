@@ -5,9 +5,7 @@
     </v-flex>
     
     <v-flex xs6 ml-2>
-      <panel title="Youtube>
-      
-      </panel>
+      <youtube :youtubeId="song.youtubeId" />
     </v-flex>
   </v-layout>
   
@@ -35,6 +33,7 @@
 import SongsService from '@/services/SongsService'
 import SongMetadata from '@/components/ViewSong/SongMetadata'
 import Panel from '@/components/Panel'
+import Youtube from '@/components/ViewSong/Youtube'
 export default {
   data () {
     return {
