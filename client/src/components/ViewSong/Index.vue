@@ -11,12 +11,7 @@
   
   <v-layout>
     <v-flex xs6>
-      <panel title="Chords">
-        <textarea
-          readonly
-          v-model="song.cords"
-        ></textarea>
-      </panel>
+      <chords :song="song" />
     </v-flex>
     <v-flex xs6 class="ml-2 mt-2">
       <lyrics :song="song" />
@@ -30,6 +25,7 @@ import SongMetadata from '@/components/ViewSong/SongMetadata'
 import Panel from '@/components/Panel'
 import YouTube from '@/components/ViewSong/YouTube'
 import Lyrics from '@/components/ViewSong/Lyrics'
+import Chords from '@/components/ViewSong/Chords'
 
 export default {
   data () {
@@ -45,21 +41,12 @@ export default {
     Panel,
     SongMetadata,
     YouTube,
-    Lyrics
+    Lyrics,
+    Chords
   }
 }
 </script>
 
 <style scoped>
-textarea {
-  width: 100%;
-  font-family: monospace;
-  border: none;
-  height:  600px;
-  border-style: none;
-  border-color: transparent;
-  outline: none;
-  overflow: auto;
-  padding: 40px;
-}
+
 </style>
