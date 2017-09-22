@@ -9,5 +9,5 @@ module.exports = (sequelize, DataTypes) => {
     lyrics: DataTypes.TEXT,
     cords: DataTypes.TEXT
   })
-  return User
+  return Song
 }

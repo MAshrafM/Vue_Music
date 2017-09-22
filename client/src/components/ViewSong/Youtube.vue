@@ -1,11 +1,7 @@
 <template>
   <panel title="Youtube Video">
-    <youtube 
-      :video-id="youtubeId" 
-      :player-width: "800" 
-      :player-height: "400"
-    >
-      
+    <youtube
+      :video-id="youtubeId" :player-width=600>
     </youtube>
   </panel>
 </template>
