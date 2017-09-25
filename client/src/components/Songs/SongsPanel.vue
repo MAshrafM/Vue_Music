@@ -66,10 +66,13 @@ export default {
       this.$router.push(route)
     }
   },
-  async mounted () {
-    // do a req for the backend for the songs
-    // .data for axios
-    this.songs = (await SongsService.index()).data
+  watch: {
+    '$route.query.search': {
+      immediate: true,
+      async handler (value) {
+        this.songs = (await SongsService.index(value)).data
+      }
+    }
   }
 }
 </script>
