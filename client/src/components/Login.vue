@@ -2,7 +2,7 @@
   <v-layout column>
     <v-flex xs6 offset-xs3>
       <panel title="Login">
-        <div v-html="error" class="error"/>
+        <div v-html="error" class="danger-alert"/>
         <v-text-field
             label= "Email"
             v-model="email"
@@ -50,7 +50,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.error{
-  color: red;
-}
+
 </style>

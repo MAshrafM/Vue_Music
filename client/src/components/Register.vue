@@ -2,7 +2,7 @@
   <v-layout column>
     <v-flex xs6 offset-xs3>
       <panel title="Register">
-        <div v-html="error" class="error"/>
+        <div v-html="error" class="danger-alert"/>
         <form
           name="vuemusic-form"
           autocomplete="off">

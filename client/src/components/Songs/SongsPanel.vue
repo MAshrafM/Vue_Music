@@ -3,7 +3,7 @@
     <v-btn 
       class="cyan accent-2"
       slot="action"
-      @click="navigateTo({name: 'songs-create'})"
+      :to="{name: 'songs-create'}"
       fab
       light
       medium
@@ -33,12 +33,12 @@
           <v-btn
             dark
             class="cyan"
-            @click="navigateTo({
+            :to="{
               name: 'song',
               params: {
                 songId: song.id
               }
-            })"
+            }"
           >
           View
           </v-btn>
@@ -59,11 +59,6 @@ export default {
   data () {
     return {
       songs: []
-    }
-  },
-  methods: {
-    navigateTo (route) {
-      this.$router.push(route)
     }
   },
   watch: {
