@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/app.js && eslint **/*.js"
+    "start": "nodemon src/app.js && eslint **/*.js",
+    "seed": "node ./seed"
   },
   "keywords": [],
   "author": "",
