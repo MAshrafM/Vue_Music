@@ -2,6 +2,7 @@ const AuthenticationController = require('./controllers/AuthenticationController
 const AuthenticationControllerPolicy
  = require('./policies/AuthenticationControllerPolicy')
 const SongsController = require('./controllers/SongsController')
+const BookmarksController = require('./controllers/BookmarksController')
 
 module.exports = (app) => {
   //register a user end-point
@@ -20,4 +21,7 @@ module.exports = (app) => {
   app.get('/songs/:songId', SongsController.show)
   // Update/Edit Songs
   app.put('/songs/:songId', SongsController.put)
+  
+  // bookmarks
+  app.get('/bookmarks', BookmarksController.index)
 }
