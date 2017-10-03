@@ -22,6 +22,11 @@ module.exports = (app) => {
   // Update/Edit Songs
   app.put('/songs/:songId', SongsController.put)
   
-  // bookmarks
+  // bookmarks 
+  // Index all bookmarks
   app.get('/bookmarks', BookmarksController.index)
+  // Post a bookmark
+  app.post('/bookmarks', BookmarksController.post)
+  // delete a bookmark
+  app.delete('/bookmarks/:bookmarkId', BookmarksController.delete)
 }
