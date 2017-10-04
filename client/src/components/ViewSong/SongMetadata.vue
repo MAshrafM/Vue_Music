@@ -28,15 +28,15 @@
         </v-btn>
         
         <v-btn 
-          v-if="isUserLoggedIn && !isBookmarked"
+          v-if="isUserLoggedIn && !bookmark"
           dark
           class="cyan"
-          @click="bookmark"
+          @click="setbookmark"
         >
           Bookmark
         </v-btn>
         <v-btn 
-          v-if="isUserLoggedIn && isBookmarked"
+          v-if="isUserLoggedIn && bookmark"
           dark
           class="cyan"
           @click="unbookmark"
@@ -62,33 +62,36 @@ export default {
     'song'
   ],
   data () {
-    isBookmarked: false
+    bookmark: null
   },
   computed: {
     ...mapState([
-      'isUserLoggedIn'
+      'isUserLoggedIn',
+      'user'
     ])
   },
   watch: {
     async song () {
       try {
-        const bookmark = (await BookmarksService.index({
+        const bookmarks = (await BookmarksService.index({
           songId: this.song.id,
-          userId: this.$store.state.user.id
+          userId: this.user.id
         })).data
-        this.isBookmarked = !!bookmark
+        if (bookmarks.length) {
+          this.bookmark = bookmarks[0]
+        }
       } catch (err) {
         console.log(err)
       }
     }
   },
   methods: {
-    async bookmark () {
+    async setbookmark () {
       try {
-        await BookmarksService.post({
+        this.bookmark = (await BookmarksService.post({
           songId: this.song.id,
-          userId: this.$store.state.user.id
-        })
+          userId: this.user.id
+        })).data
       } catch (err) {
         console.log(err)
       }
@@ -96,9 +99,9 @@ export default {
     async unbookmark () {
       try {
         await BookmarksService.delete({
-          songId: this.song.id,
-          userId: this.$store.state.user.id
+          this.bookmark.bookmarkId
         })
+        this.bookmark = null
       } catch (err) {
         console.log(err)
       }
