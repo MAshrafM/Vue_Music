@@ -12,7 +12,7 @@ module.exports = {
       if (songId) {
         where.SongId = songId
       }
-      const bookmark = await Bookmark.findAll({
+      const bookmarks = await Bookmark.findAll({
         where: where,
         include: [
           {
@@ -21,10 +21,12 @@ module.exports = {
         ]
       })
         .map(bookmark => bookmark.toJSON())
-        .map(bookmark => _.extend({
-          bookmarkId: bookmark.id
-        }, bookmark.Song))
-      res.send(bookmark)
+        .map(bookmark => _.extend(
+          {},
+          bookmark.Song,
+          bookmark
+        ))
+      res.send(bookmarks)
     } catch (err) {
       res.status(500).send({
         error: 'an error has occured trying to fetch the bookmark'
