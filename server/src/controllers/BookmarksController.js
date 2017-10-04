@@ -1,16 +1,29 @@
 const {Bookmark} = require('../models')
+const _ = require ('lodash')
 
 module.exports = {
   // Index Bookmarks
   async index (req, res) {
     try {
-      const {songId} = req.query 
-      const bookmark = await Bookmark.findOne({
-        where: {
-          SongId: songId,
-          UserId: userId
-        }
+      const {songId, userId} = req.query 
+      const where = {
+        UserId: userId
+      }
+      if (songId) {
+        where.SongId = songId
+      }
+      const bookmark = await Bookmark.findAll({
+        where: where,
+        include: [
+          {
+            model: Song
+          }
+        ]
       })
+        .map(bookmark => bookmark.toJSON())
+        .map(bookmark => _.extend({
+          bookmarkId: bookmark.id
+        }, bookmark.Song))
       res.send(bookmark)
     } catch (err) {
       res.status(500).send({
