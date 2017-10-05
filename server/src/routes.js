@@ -3,6 +3,8 @@ const AuthenticationControllerPolicy
  = require('./policies/AuthenticationControllerPolicy')
 const SongsController = require('./controllers/SongsController')
 const BookmarksController = require('./controllers/BookmarksController')
+const HistoriesController = require('./controllers/HistoriesController')
+
 
 module.exports = (app) => {
   //register a user end-point
@@ -29,4 +31,10 @@ module.exports = (app) => {
   app.post('/bookmarks', BookmarksController.post)
   // delete a bookmark
   app.delete('/bookmarks/:bookmarkId', BookmarksController.delete)
+  
+  //History
+  // get all recent
+  app.get('/histories', HistoriesController.index)
+  // add recent
+  app.post('/histories', HistoriesController.post)
 }
