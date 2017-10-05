@@ -74,6 +74,10 @@ export default {
   },
   watch: {
     async song () {
+      if (!this.isUserLoggedIn) {
+        return
+      }
+      
       try {
         const bookmarks = (await BookmarksService.index({
           songId: this.song.id
@@ -98,9 +102,7 @@ export default {
     },
     async unbookmark () {
       try {
-        await BookmarksService.delete(
-          this.bookmark.id
-        )
+        await BookmarksService.delete(this.bookmark.id)
         this.bookmark = null
       } catch (err) {
         console.log(err)
