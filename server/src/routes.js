@@ -5,7 +5,7 @@ const SongsController = require('./controllers/SongsController')
 const BookmarksController = require('./controllers/BookmarksController')
 const HistoriesController = require('./controllers/HistoriesController')
 
-const isAuthenticated = './policies/isAuthenticated'
+const isAuthenticated = require('./policies/isAuthenticated')
 
 module.exports = (app) => {
   //register a user end-point
@@ -27,17 +27,11 @@ module.exports = (app) => {
   
   // bookmarks 
   // Index all bookmarks
-  app.get('/bookmarks',
-  isAuthenticated,
-  BookmarksController.index)
+  app.get('/bookmarks', isAuthenticated, BookmarksController.index)
   // Post a bookmark
-  app.post('/bookmarks',
-  isAuthenticated,
-  BookmarksController.post)
+  app.post('/bookmarks', isAuthenticated, BookmarksController.post)
   // delete a bookmark
-  app.delete('/bookmarks/:bookmarkId',
-  isAuthenticated,
-  BookmarksController.delete)
+  app.delete('/bookmarks/:bookmarkId', isAuthenticated, BookmarksController.delete)
   
   //History
   // get all recent

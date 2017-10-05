@@ -77,7 +77,6 @@ export default {
       if (!this.isUserLoggedIn) {
         return
       }
-      
       try {
         const bookmarks = (await BookmarksService.index({
           songId: this.song.id

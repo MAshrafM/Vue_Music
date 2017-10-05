@@ -6,7 +6,7 @@
     </v-flex>
     <v-flex :class="{
       xs12: !isUserLoggedIn,
-      xs6: isUserLoggedIn
+      'xs6 ml-2': isUserLoggedIn
     }"
     >
       <songs-search-panel />

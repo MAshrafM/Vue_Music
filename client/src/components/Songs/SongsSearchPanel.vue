@@ -1,5 +1,17 @@
 <template>
   <panel title="Search">
+    <v-btn 
+      icon 
+      slot="action"
+      fab
+      dark
+      medium
+      absolute
+      right
+      middle
+    >
+      <v-icon>search</v-icon>
+    </v-btn>
     <v-text-field
     label= "Search songs"
     v-model="search"

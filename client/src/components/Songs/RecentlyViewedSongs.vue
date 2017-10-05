@@ -1,5 +1,17 @@
 <template>
   <panel title="Recently Viewed Songs">
+    <v-btn 
+      icon 
+      slot="action"
+      fab
+      dark
+      medium
+      absolute
+      right
+      middle
+    >
+      <v-icon>pets</v-icon>
+    </v-btn>
     <v-data-table
       :headers="headers"
       :pagination.sync="pagination"

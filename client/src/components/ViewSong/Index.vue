@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-layout>
-      <v-flex xs6>
+      <v-flex xs6 d-flex>
         <song-metadata :song="song" />
       </v-flex>
       
@@ -46,7 +46,6 @@ export default {
   async mounted () {
     const songId = this.route.params.songId
     this.song = (await SongsService.show(songId)).data
-    
     if (this.isUserLoggedIn) {
       SongHistoryService.post({
         songId: songId

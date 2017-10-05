@@ -1,5 +1,17 @@
 <template>
   <panel title="Bookmarks">
+    <v-btn 
+      icon 
+      slot="action"
+      fab
+      dark
+      medium
+      absolute
+      right
+      middle
+    >
+      <v-icon>bookmark</v-icon>
+    </v-btn>
     <v-data-table
       :headers="headers"
       :pagination.sync="pagination"

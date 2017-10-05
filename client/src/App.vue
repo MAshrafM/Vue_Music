@@ -7,6 +7,11 @@
           <router-view></router-view>
         </v-container>
       </main>
+      <footer class="cyan">
+        <v-container>
+          <div class="text-xs-center">&copy; 2017 All rights reserved. MAshraf || FreeCodeCamp </div>
+        </v-container>
+      </footer>
     </v-app>  
   </div>
 </template>
