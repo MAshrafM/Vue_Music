@@ -34,19 +34,10 @@ export default {
         }
       ],
       pagination: {
-        sortBy: 'date',
+        sortBy: 'createdAt',
         descending: true
       },
-      bookmarks: [
-        {
-          title: 'hell'
-          artist: 'Test'
-        },
-        {
-          title: 'hell0'
-          artist: 'Testoo'
-        }
-      ]
+      bookmarks: []
     }
   },
   computed: {
@@ -54,12 +45,11 @@ export default {
       'isUserLoggedIn',
       'user'
     ])
-  }
+  },
   async mounted () {
     if (this.isUserLoggedIn) {
-      this.bookmarks = (await BookmarksService.index({
-        userId: this.user.id
-      })).data
+      this.bookmarks = (await BookmarksService.index(
+      )).data
     }
   }
 }
