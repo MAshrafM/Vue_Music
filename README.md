@@ -24,4 +24,6 @@ npm i
 npm start
 ```
    
+### Showcase
+![View](https://github.com/MAshrafM/Vue_Music/blob/master/show.jpg)
 Following [FreeCodeCamp](https://www.youtube.com/playlist?list=PLWKjhJtqVAbnadueQ-C5keMQQiQau_i0D) project series with slight final touches at the end.
